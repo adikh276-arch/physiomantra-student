@@ -10,11 +10,14 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import ApplicationModal from "@/components/ApplicationModal";
 
+import Navbar from "@/components/Navbar";
+
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <main className="min-h-screen">
+      <Navbar onApplyClick={() => setIsModalOpen(true)} />
       <Hero onApplyClick={() => setIsModalOpen(true)} />
       <WhatYouDo />
       <WhoCanApply />

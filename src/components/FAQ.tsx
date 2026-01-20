@@ -38,11 +38,11 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden">
+    <section id="faq" className="py-24 sm:py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/[0.02] rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/[0.03] rounded-full blur-3xl" />
-      
+
       <div className="section-container relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-14">

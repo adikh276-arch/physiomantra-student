@@ -38,19 +38,15 @@
     --radius: 0.875rem;
 
     /* Enhanced custom tokens */
-    --hero-gradient: linear-gradient(
-      135deg, 
-      hsl(195 100% 98%) 0%, 
-      hsl(0 0% 100%) 40%,
-      hsl(210 30% 98%) 100%
-    );
-    --hero-gradient-overlay: linear-gradient(
-      90deg,
-      hsl(0 0% 100% / 0.97) 0%,
-      hsl(0 0% 100% / 0.85) 50%,
-      hsl(0 0% 100% / 0.4) 75%,
-      transparent 100%
-    );
+    --hero-gradient: linear-gradient(135deg,
+        hsl(195 100% 98%) 0%,
+        hsl(0 0% 100%) 40%,
+        hsl(210 30% 98%) 100%);
+    --hero-gradient-overlay: linear-gradient(90deg,
+        hsl(0 0% 100% / 0.97) 0%,
+        hsl(0 0% 100% / 0.85) 50%,
+        hsl(0 0% 100% / 0.4) 75%,
+        transparent 100%);
     --card-shadow: 0 4px 24px -6px hsla(220, 25%, 12%, 0.06), 0 2px 8px -2px hsla(220, 25%, 12%, 0.04);
     --card-shadow-hover: 0 12px 40px -12px hsla(195, 100%, 50%, 0.2), 0 4px 16px -4px hsla(220, 25%, 12%, 0.08);
     --highlight-bg: 195 100% 96%;
@@ -108,7 +104,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-6xl mx-auto px-5 sm:px-8 lg:px-10;
+    @apply max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10;
   }
 
   .section-title {
@@ -144,13 +140,13 @@
   .premium-button {
     @apply relative overflow-hidden transition-all duration-300 ease-out;
   }
-  
+
   .premium-button::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full;
     transition: transform 0.5s ease;
   }
-  
+
   .premium-button:hover::before {
     @apply translate-x-full;
   }
@@ -182,6 +178,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -189,8 +186,13 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes scaleIn {
@@ -198,6 +200,7 @@
       opacity: 0;
       transform: scale(0.92);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -209,19 +212,46 @@
       opacity: 0;
       transform: translateX(40px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.35s; }
-  .stagger-4 { animation-delay: 0.5s; }
-  .stagger-5 { animation-delay: 0.65s; }
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-3 {
+    animation-delay: 0.35s;
+  }
+
+  .stagger-4 {
+    animation-delay: 0.5s;
+  }
+
+  .stagger-5 {
+    animation-delay: 0.65s;
+  }
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(195_100%_40%)];
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-muted-foreground/30 transition-colors;
   }
 }
