@@ -25,31 +25,35 @@ const WhatYouDo = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-secondary/30">
-      <div className="section-container">
-        <div className="text-center mb-12">
-          <h2 className="section-title mb-4">What you'll do</h2>
+    <section className="py-24 sm:py-32 relative overflow-hidden" style={{ background: "var(--section-gradient)" }}>
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/[0.02] rounded-full blur-3xl" />
+      
+      <div className="section-container relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="section-title mb-5">What you'll do</h2>
           <p className="section-subtitle mx-auto">
             As a PT Assistant, you'll support patients in their recovery journey at home.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {tasks.map((task, index) => (
-            <div key={index} className="feature-card text-center">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-highlight mb-4">
-                <task.icon className="w-7 h-7 text-primary" />
+            <div key={index} className="feature-card text-center group">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-highlight mb-5 group-hover:scale-110 transition-transform duration-300">
+                <task.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-2">{task.title}</h3>
-              <p className="text-muted-foreground text-sm">{task.description}</p>
+              <h3 className="font-display font-bold text-lg mb-3">{task.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{task.description}</p>
             </div>
           ))}
         </div>
 
         {/* Important clarification */}
-        <div className="mt-10 bg-card rounded-xl border border-border p-6 max-w-2xl mx-auto" style={{ boxShadow: "var(--card-shadow)" }}>
-          <p className="text-center text-muted-foreground">
-            <span className="font-semibold text-foreground">Important:</span> You won't diagnose or treat independently. 
+        <div className="mt-14 bg-card rounded-2xl border border-border/80 p-8 max-w-3xl mx-auto" style={{ boxShadow: "var(--card-shadow)" }}>
+          <p className="text-center text-muted-foreground text-lg leading-relaxed">
+            <span className="font-bold text-foreground">Important:</span> You won't diagnose or treat independently. 
             You always work under the guidance of licensed physiotherapists.
           </p>
         </div>
