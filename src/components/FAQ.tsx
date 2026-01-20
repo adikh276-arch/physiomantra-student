@@ -38,11 +38,15 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24">
-      <div className="section-container">
+    <section className="py-24 sm:py-32 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/[0.02] rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/[0.03] rounded-full blur-3xl" />
+      
+      <div className="section-container relative z-10">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="section-title mb-4">Frequently asked questions</h2>
+          <div className="text-center mb-14">
+            <h2 className="section-title mb-5">Frequently asked questions</h2>
             <p className="section-subtitle mx-auto">
               Got questions? We've got answers.
             </p>
@@ -55,10 +59,10 @@ const FAQ = () => {
                 value={`item-${index}`}
                 className="feature-card !p-0 overflow-hidden"
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-display font-semibold hover:no-underline hover:text-primary transition-colors">
+                <AccordionTrigger className="px-7 py-5 text-left font-display font-semibold text-[1.05rem] hover:no-underline hover:text-primary transition-colors [&>svg]:w-5 [&>svg]:h-5 [&>svg]:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-muted-foreground">
+                <AccordionContent className="px-7 pb-6 text-muted-foreground text-base leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
