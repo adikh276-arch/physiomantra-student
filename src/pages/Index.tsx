@@ -1,13 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Hero from "@/components/Hero";
+import WhatYouDo from "@/components/WhatYouDo";
+import WhoCanApply from "@/components/WhoCanApply";
+import Earnings from "@/components/Earnings";
+import TrainingSupport from "@/components/TrainingSupport";
+import HowItWorks from "@/components/HowItWorks";
+import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
+import ApplicationModal from "@/components/ApplicationModal";
 
 const Index = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen">
+      <Hero onApplyClick={() => setIsModalOpen(true)} />
+      <WhatYouDo />
+      <WhoCanApply />
+      <Earnings />
+      <TrainingSupport />
+      <HowItWorks />
+      <FAQ />
+      <FinalCTA onApplyClick={() => setIsModalOpen(true)} />
+      <Footer />
+      <ApplicationModal open={isModalOpen} onOpenChange={setIsModalOpen} />
+    </main>
   );
 };
 
