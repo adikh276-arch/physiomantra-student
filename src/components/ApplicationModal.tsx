@@ -28,10 +28,14 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+}
+  from "@/components/ui/select";
 
 const formSchema = z.object({
-  fullName: z.string().min(2, "Name must be at least 2 characters").max(100),
+  fullName: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100)
+    .regex(/^[a-zA-Z\s]*$/, "Name should only contain letters"),
   age: z.string().min(1, "Please enter your age"),
   phone: z.string()
     .min(10, "Phone number must be at least 10 digits")
@@ -144,7 +148,15 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
                     <FormItem>
                       <FormLabel>Full name</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g. Rahul Kumar" className="bg-background" {...field} />
+                        <Input
+                          placeholder="e.g. Rahul Kumar"
+                          className="bg-background"
+                          {...field}
+                          onChange={(e) => {
+                            const value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+                            field.onChange(value);
+                          }}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -175,7 +187,16 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
                         <FormControl>
                           <div className="relative">
                             <span className="absolute left-3 top-2.5 text-muted-foreground font-medium border-r border-border pr-2 mr-2">+91</span>
-                            <Input placeholder="98765 43210" className="pl-14 bg-background" maxLength={10} {...field} />
+                            <Input
+                              placeholder="98765 43210"
+                              className="pl-14 bg-background"
+                              maxLength={10}
+                              {...field}
+                              onChange={(e) => {
+                                const value = e.target.value.replace(/[^0-9]/g, '');
+                                field.onChange(value);
+                              }}
+                            />
                           </div>
                         </FormControl>
                         <FormMessage />
