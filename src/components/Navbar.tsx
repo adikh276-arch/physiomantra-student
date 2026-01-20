@@ -46,7 +46,7 @@ const Navbar = ({ onApplyClick }: NavbarProps) => {
                             onClick={() => scrollToSection("how-it-works")}
                             className="hidden md:block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                         >
-                            How it works
+                            Our Process
                         </button>
                         <button
                             onClick={() => scrollToSection("faq")}
