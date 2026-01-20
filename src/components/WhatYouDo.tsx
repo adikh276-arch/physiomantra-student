@@ -1,4 +1,4 @@
-import { Home, Activity, Shield, MessageSquare } from "lucide-react";
+import { Home, Activity, Shield, MessageSquare, Info } from "lucide-react";
 
 const WhatYouDo = () => {
   const tasks = [
@@ -29,7 +29,7 @@ const WhatYouDo = () => {
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/[0.03] rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/[0.02] rounded-full blur-3xl" />
-      
+
       <div className="section-container relative z-10">
         <div className="text-center mb-16">
           <h2 className="section-title mb-5">What you'll do</h2>
@@ -51,11 +51,18 @@ const WhatYouDo = () => {
         </div>
 
         {/* Important clarification */}
-        <div className="mt-14 bg-card rounded-2xl border border-border/80 p-8 max-w-3xl mx-auto" style={{ boxShadow: "var(--card-shadow)" }}>
-          <p className="text-center text-muted-foreground text-lg leading-relaxed">
-            <span className="font-bold text-foreground">Important:</span> You won't diagnose or treat independently. 
-            You always work under the guidance of licensed physiotherapists.
-          </p>
+        <div className="mt-14 max-w-3xl mx-auto">
+          <div className="bg-blue-50/80 border border-blue-100 rounded-xl p-5 flex items-start gap-4 shadow-sm">
+            <div className="p-2 bg-white rounded-full shrink-0 shadow-sm">
+              <Info className="w-5 h-5 text-primary" />
+            </div>
+            <div className="pt-1">
+              <h4 className="font-semibold text-foreground text-sm mb-1 uppercase tracking-wide">Important Note</h4>
+              <p className="text-muted-foreground leading-relaxed">
+                You won't diagnose or treat independently. You always work under the guidance of licensed physiotherapists.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
